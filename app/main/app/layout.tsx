@@ -5,7 +5,7 @@ import { headers } from "next/headers";
 import { ClerkProvider } from "@clerk/nextjs";
 
 export const metadata: Metadata = {
-  title: "Lost n' found",
+  title: "Lost and found - Blubberfish",
   description: "Connecting people with what they have lost.",
 };
 
@@ -21,7 +21,7 @@ export default async function Layout({
   );
   return (
     <html lang={lang}>
-      <body className="min-h-full flex flex-col">
+      <body className="min-h-dvh flex flex-col">
         <ClerkProvider>{children}</ClerkProvider>
       </body>
     </html>
