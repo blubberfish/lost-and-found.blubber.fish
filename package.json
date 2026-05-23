@@ -9,6 +9,7 @@
   },
   "homepage": "https://github.com/blubberfish/lost-and-found.blubber.fish#readme",
   "workspaces": [
-    "app/*"
+    "app/*",
+    "lib/*"
   ]
 }

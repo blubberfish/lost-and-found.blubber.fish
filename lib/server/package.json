@@ -1,0 +1,8 @@
+{
+    "name": "@blubberfish/server",
+    "exports": {
+        "./negotiators": "./negotiators/index.ts"
+    },
+    "type": "module",
+    "version": "1.0.0"
+}
