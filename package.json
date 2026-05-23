@@ -1,10 +1,14 @@
 {
-  "name": "@blubberfish/org",
-  "version": "1.0.0",
-  "license": "UNLICENSED",
+  "name": "lost-and-found.blubber.fish",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/blubberfish/lost-and-found.blubber.fish.git"
+  },
+  "bugs": {
+    "url": "https://github.com/blubberfish/lost-and-found.blubber.fish/issues"
+  },
+  "homepage": "https://github.com/blubberfish/lost-and-found.blubber.fish#readme",
   "workspaces": [
-    "apps/*",
-    "libs/*"
-  ],
-  "private": true
+    "app/*"
+  ]
 }
