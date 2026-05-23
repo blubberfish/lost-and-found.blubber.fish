@@ -21,7 +21,7 @@ export default async function Layout({
   );
   return (
     <html lang={lang}>
-      <body className="min-h-dvh flex flex-col">
+      <body className="bg-gray-100 text-black min-h-dvh flex flex-col">
         <ClerkProvider>{children}</ClerkProvider>
       </body>
     </html>
