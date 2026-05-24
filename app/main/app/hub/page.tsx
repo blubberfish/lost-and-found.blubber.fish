@@ -22,7 +22,7 @@ export default async function Page() {
       <section>
         <header>
           <h1>Inventory</h1>
-          <Link href="/hub/inventory/add">Register object</Link>
+          <Link href="/hub/object/new">Register object</Link>
         </header>
       </section>
       <section></section>
