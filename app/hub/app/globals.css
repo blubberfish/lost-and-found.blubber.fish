@@ -1,1 +1,7 @@
 @import "tailwindcss";
+
+@theme inline {
+  --color-surface: var(--color-gray-100);
+  --color-surface-t: var(--color-gray-50);
+  --color-surface-b: var(--color-gray-200);
+}
