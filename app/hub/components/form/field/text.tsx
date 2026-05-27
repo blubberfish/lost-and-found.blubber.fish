@@ -12,7 +12,7 @@ import { shortId } from "../utils";
 export type TextFormFieldProps = { label: string; description?: string } & (
   | {
       multiline?: false;
-      inputProps?: Omit<InputHTMLAttributes<HTMLInputElement>, "type">;
+      inputProps?: InputHTMLAttributes<HTMLInputElement>;
     }
   | {
       multiline: true;
@@ -38,13 +38,17 @@ export function TextFormField({
       targetInputId={inputId}
     >
       {multiline ? (
-        <textarea {...inputProps} id={inputId} />
+        <textarea
+          className="py-1 border-b focus:border-violet-600 outline-none resize-none"
+          {...inputProps}
+          id={inputId}
+        />
       ) : (
         <input
           className="py-1 border-b focus:border-violet-600 outline-none"
           {...inputProps}
           id={inputId}
-          type="text"
+          type={inputProps?.type || "text"}
         />
       )}
     </FormFieldContainer>

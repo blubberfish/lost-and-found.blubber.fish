@@ -1,15 +1,26 @@
 "use server";
 
 export interface TagReport {
-
+  tagId: string;
+  tagCode: string;
+  pickupAddress: string;
+  latitude: number;
+  longitude: number;
+  contactInfo?: string;
 }
 
-export interface State {
-    validationErrors?: Record<string, string>;
-    submittedData?: Record<string, unknown>;
-}
+export type State = {
+  action: "input" | "success";
+  defaults: Partial<TagReport>;
+  validationErrors?: Record<string, string>;
+};
 
-export async function submitReportAction(state: State): Promise<State> {
-  console.log("submitReportAction called");
-  return state;
+export async function submitReportAction(
+  previousState: State,
+  data: FormData,
+): Promise<State> {
+  return {
+    action: "success",
+    defaults: Object.fromEntries(data) as Partial<TagReport>,
+  };
 }
