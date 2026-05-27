@@ -7,40 +7,31 @@ import {
   useState,
   type PropsWithChildren,
 } from "react";
-import { FormContext } from "./context";
+import { FormContext, IFormContext } from "./context";
 
 export function Form({
   children,
   formProps,
   disabled,
+  readonly,
 }: PropsWithChildren<{
   disabled?: boolean;
-  formProps?: FormHTMLAttributes<HTMLFormElement>;
+  readonly?: boolean;
+  formProps?: Omit<FormHTMLAttributes<HTMLFormElement>, "children">;
 }>) {
-  const base = useContext(FormContext);
-  const [context, setContext] = useState(base);
+  const [context, setContext] = useState<IFormContext>({});
   useEffect(() => {
-    const data: Record<string, unknown> = {};
-    setContext((prev) => ({
-      ...prev,
-      getData() {
-        return { ...data };
-      },
-      getFieldValue<T = unknown>(name: string) {
-        return data[name] as T;
-      },
-      setFieldValue<T = unknown>(name: string, value: T) {
-        data[name] = value;
-      },
-    }));
-  }, []);
-  useEffect(() => {
-    setContext((prev) => ({ ...prev, disabled }));
-  }, [disabled]);
-
+    setContext(() => ({ disabled, readonly }));
+  }, [disabled, readonly]);
   return (
     <FormContext.Provider value={context}>
-      <form {...formProps}>{children}</form>
+      <form
+        {...formProps}
+        aria-disabled={context.disabled}
+        aria-readonly={context.readonly}
+      >
+        {children}
+      </form>
     </FormContext.Provider>
   );
 }
